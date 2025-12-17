@@ -72,7 +72,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: false # if: github.event_name == 'push' # TODO: re-enable when packages have been initially released.
     needs: [lint, tests]
     permissions:
       id-token: write
