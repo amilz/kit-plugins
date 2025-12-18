@@ -44,12 +44,6 @@
         "test:types": "tsc --noEmit",
         "test:unit": "vitest run"
     },
-    "peerDependencies": {
-        "@solana/kit": "^5.1.0"
-    },
-    "devDependencies": {
-        "@solana/kit": "^5.1.0"
-    },
     "license": "MIT",
     "repository": {
         "type": "git",
