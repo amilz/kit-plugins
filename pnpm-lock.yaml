@@ -71,6 +71,9 @@ importers:
       '@solana/kit-plugin-rpc':
         specifier: workspace:*
         version: link:../kit-plugin-rpc
+      '@solana/plugin-core':
+        specifier: workspace:*
+        version: link:../plugin-core
     devDependencies:
       '@solana/kit':
         specifier: ^5.1.0

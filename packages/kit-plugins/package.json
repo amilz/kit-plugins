@@ -50,7 +50,8 @@
         "@solana/kit": "^5.1.0"
     },
     "dependencies": {
-        "@solana/kit-plugin-rpc": "workspace:*"
+        "@solana/kit-plugin-rpc": "workspace:*",
+        "@solana/plugin-core": "workspace:*"
     },
     "devDependencies": {
         "@solana/kit": "^5.1.0"

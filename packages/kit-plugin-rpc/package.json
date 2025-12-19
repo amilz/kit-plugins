@@ -1,7 +1,7 @@
 {
     "name": "@solana/kit-plugin-rpc",
     "version": "0.1.0",
-    "description": "TODO",
+    "description": "RPC support for Kit clients",
     "exports": {
         "types": "./dist/types/index.d.ts",
         "react-native": "./dist/index.react-native.mjs",
@@ -48,7 +48,8 @@
         "@solana/kit": "^5.1.0"
     },
     "devDependencies": {
-        "@solana/kit": "^5.1.0"
+        "@solana/kit": "^5.1.0",
+        "@solana/plugin-core": "workspace:*"
     },
     "license": "MIT",
     "repository": {
