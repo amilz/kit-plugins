@@ -56,7 +56,7 @@ export type AirdropFunction = (address: Address, amount: Lamports) => Promise<vo
  * @see {@link AirdropFunction}
  */
 export function airdrop() {
-    return <T extends LiteSVMClient | RpcClient>(client: T) => {
+    return <T extends LiteSVMClient | RpcClient>(client: T): T & { airdrop: AirdropFunction } => {
         if ('svm' in client) {
             const airdrop: AirdropFunction = (address, amount) => {
                 client.svm.airdrop(address, amount);
