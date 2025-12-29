@@ -14,9 +14,19 @@ export function getVitestConfig(platform: Platform) {
             __TEST__: 'true',
             __VERSION__: `"${env.npm_package_version}"`,
         },
+        ssr: platform === 'browser' ? { noExternal: [/@solana/] } : undefined,
+        resolve: {
+            conditions:
+                platform === 'browser'
+                    ? ['browser', 'import', 'module', 'default']
+                    : platform === 'react-native'
+                      ? ['react-native', 'import', 'module', 'default']
+                      : ['node', 'import', 'require', 'default'],
+        },
         test: {
-            environment: platform === 'browser' ? 'happy-dom' : 'node',
             name: platform,
+            environment: platform === 'browser' ? 'happy-dom' : 'node',
+            setupFiles: platform === 'browser' ? ['../../vitest.setup-browser.mts'] : undefined,
         },
     });
 }
