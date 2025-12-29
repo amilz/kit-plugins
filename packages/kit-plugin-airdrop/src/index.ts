@@ -13,8 +13,9 @@ type RpcClient = {
  *
  * @param address - The address to which the airdrop will be sent.
  * @param amount - The amount of lamports to airdrop.
+ * @param abortSignal - Optional signal to abort the airdrop operation.
  */
-export type AirdropFunction = (address: Address, amount: Lamports) => Promise<void>;
+export type AirdropFunction = (address: Address, amount: Lamports, abortSignal?: AbortSignal) => Promise<void>;
 
 /**
  * A plugin that adds an `airdrop` method to the client.
@@ -64,10 +65,17 @@ export function airdrop() {
             };
             return { ...client, airdrop };
         }
-        const airdropInternal = airdropFactory(client);
-        const airdrop: AirdropFunction = async (address, amount) => {
-            await airdropInternal({ commitment: 'confirmed', lamports: amount, recipientAddress: address });
-        };
+        const airdropInternal = airdropFactory({
+            rpc: client.rpc,
+            rpcSubscriptions: client.rpcSubscriptions,
+        });
+        const airdrop: AirdropFunction = (address, amount, abortSignal) =>
+            airdropInternal({
+                abortSignal,
+                commitment: 'confirmed',
+                lamports: amount,
+                recipientAddress: address,
+            }).then(() => {});
         return { ...client, airdrop };
     };
 }
