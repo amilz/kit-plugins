@@ -14,7 +14,7 @@ export function getVitestConfig(platform: Platform) {
             __TEST__: 'true',
             __VERSION__: `"${env.npm_package_version}"`,
         },
-        ssr: platform === 'browser' ? { noExternal: [/@solana/] } : undefined,
+        ssr: platform === 'browser' ? { noExternal: [/@solana\/(?!.*@loris-sandbox\/litesvm-kit)/] } : undefined,
         resolve: {
             conditions:
                 platform === 'browser'
