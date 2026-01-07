@@ -20,13 +20,11 @@ export function createDefaultRpcClient<TClusterUrl extends ClusterUrl>(config: {
     rpcSubscriptionsConfig?: DefaultRpcSubscriptionsChannelConfig<TClusterUrl>;
     url: TClusterUrl;
 }) {
-    const client = createEmptyClient()
+    return createEmptyClient()
         .use(rpc<TClusterUrl>(config.url, config.rpcSubscriptionsConfig))
         .use(payer(config.payer))
         .use(defaultTransactionPlannerAndExecutorFromRpc())
         .use(sendInstructionPlans());
-
-    return client;
 }
 
 export function createDefaultLocalhostRpcClient(config: { payer?: TransactionSigner } = {}) {
