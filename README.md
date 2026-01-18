@@ -126,9 +126,11 @@ Each of these packages offers one or more plugins. You can import these plugins 
 
 | Package | Description | Plugins | Maintainers |
 | ------- | ----------- | ------- | ----------- |
-|         |             |         |             |
+| [`airdrop-token`](https://github.com/amilz/kit-helpers/tree/main/plugins/airdrop-token) _(unpublished)_ | Create token mints, ATAs, and mint tokens for testing | `airdropToken`, `testTokenPlugin` | [@amilz](https://github.com/amilz) |
+| [`local-validator`](https://github.com/amilz/kit-helpers/tree/main/plugins/local-validator) _(unpublished)_ | Solana test validator lifecycle management (start, stop, restart) | `localValidatorPlugin` | [@amilz](https://github.com/amilz) |
+| [`transaction-builder`](https://github.com/amilz/kit-helpers/tree/main/plugins/transaction-builder) _(unpublished)_ | Transaction builder for constructing, signing, and sending transactions | `transactionBuilderPlugin` | [@amilz](https://github.com/amilz) |
 
-_We currently have no community plugins to showcase. Do you know any? Please open a PR to add them here!_
+_Do you know any? Please open a PR to add them here!_
 
 ## Create Your Own Plugins
 
