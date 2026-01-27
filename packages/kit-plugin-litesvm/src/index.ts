@@ -1,4 +1,22 @@
 import { LiteSVM } from '@loris-sandbox/litesvm-kit';
+
+// Transaction result assertions and type guards
+export {
+    assertIsFailedTransaction,
+    assertIsSuccessfulSimulation,
+    assertIsSuccessfulTransaction,
+    isFailedTransaction,
+    isSuccessfulSimulation,
+    isSuccessfulTransaction,
+} from './assertions';
+export type {
+    FailedTransactionMetadata,
+    SendTransactionResult,
+    SimulatedTransactionInfo,
+    SimulationResult,
+    TransactionMetadata,
+    TransactionResult,
+} from './assertions';
 import {
     AccountInfoBase,
     AccountInfoWithBase64EncodedData,
