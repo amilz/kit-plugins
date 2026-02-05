@@ -85,17 +85,19 @@ export function defaultTransactionPlannerAndExecutorFromLitesvm(
         });
 
         const transactionPlanExecutor = createTransactionPlanExecutor({
-            executeTransactionMessage: async (transactionMessage, config) => {
+            executeTransactionMessage: async (context, transactionMessage, config) => {
                 try {
                     const latestBlockhash = client.svm.latestBlockhashLifetime();
                     const signedTransaction = await pipe(
                         transactionMessage,
                         tx => setTransactionMessageLifetimeUsingBlockhash(latestBlockhash, tx),
+                        tx => (context.message = tx),
                         async tx => await signTransactionMessageWithSigners(tx, config),
                     );
 
+                    context.transaction = signedTransaction;
                     client.svm.sendTransaction(signedTransaction);
-                    return { transaction: signedTransaction };
+                    return signedTransaction;
                 } catch (error) {
                     throw unwrapSimulationError(error);
                 }
