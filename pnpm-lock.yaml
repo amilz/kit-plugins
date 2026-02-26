@@ -160,6 +160,13 @@ importers:
       '@solana/kit-plugin-rpc':
         specifier: workspace:*
         version: link:../kit-plugin-rpc
+    devDependencies:
+      '@solana-program/compute-budget':
+        specifier: ^0.14.0
+        version: 0.14.0(@solana/kit@6.1.0(typescript@5.9.3))
+      '@solana-program/memo':
+        specifier: ^0.11.0
+        version: 0.11.0(@solana/kit@6.1.0(typescript@5.9.3))
 
 packages:
 
@@ -1065,6 +1072,11 @@ packages:
 
   '@solana-program/compute-budget@0.14.0':
     resolution: {integrity: sha512-tgvey/2bT35gUlb1lC84Hh2VqkOLoSa6KvaVz5DT037Mg8ECM+f2Q5Prv6V9yKQjRGGF2Y8BZgpOoUg6lTUl/Q==}
+    peerDependencies:
+      '@solana/kit': ^6.1.0
+
+  '@solana-program/memo@0.11.0':
+    resolution: {integrity: sha512-/WVM2y76hL5zWJJwaHsbvMREeIUzhKDHU+ftMXTf4aLPJFDKG6am4X5RID3CHsI3oYNEMywgVvsFdnorwgEuwA==}
     peerDependencies:
       '@solana/kit': ^6.1.0
 
@@ -4489,6 +4501,10 @@ snapshots:
       '@sinonjs/commons': 3.0.1
 
   '@solana-program/compute-budget@0.14.0(@solana/kit@6.1.0(typescript@5.9.3))':
+    dependencies:
+      '@solana/kit': 6.1.0(typescript@5.9.3)
+
+  '@solana-program/memo@0.11.0(@solana/kit@6.1.0(typescript@5.9.3))':
     dependencies:
       '@solana/kit': 6.1.0(typescript@5.9.3)
 
