@@ -158,6 +158,12 @@ importers:
         specifier: ^0.12.2
         version: 0.12.2(@solana/kit@7.0.0(typescript@7.0.2))
 
+  packages/kit-plugin-offline:
+    dependencies:
+      '@solana/kit':
+        specifier: ^7.0.0
+        version: 7.0.0(typescript@7.0.2)
+
   packages/kit-plugin-payer:
     dependencies:
       '@solana/kit':
